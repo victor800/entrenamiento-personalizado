@@ -80,13 +80,6 @@ tailwind.config = {
   .reveal.l{transform:translateX(-70px) scale(.97)} .reveal.r{transform:translateX(70px) scale(.97)} .reveal.z{transform:scale(.82) translateY(30px)}
   .reveal.in{opacity:1;transform:none}
   #prog{transform:scaleX(0);transform-origin:left}
-  /* Logo protagonista */
-  .logo-hero{position:relative;display:grid;place-items:center}
-  .logo-hero::before{content:'';position:absolute;inset:-14%;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.42),rgba(127,214,255,.14) 55%,transparent 72%);filter:blur(10px);animation:breathe 5s ease-in-out infinite}
-  .logo-hero::after{content:'';position:absolute;inset:-6%;border-radius:50%;border:2px dashed rgba(0,212,255,.35);animation:spin 28s linear infinite}
-  .logo-hero img{position:relative;z-index:1;border-radius:50%;object-fit:cover;border:3px solid var(--acc);box-shadow:0 0 0 10px rgba(0,212,255,.12),0 0 0 22px rgba(0,212,255,.06),0 0 60px rgba(0,212,255,.35),0 25px 70px rgba(0,0,0,.7)}
-  @keyframes breathe{50%{transform:scale(1.08);opacity:.8}}
-  @keyframes spin{to{transform:rotate(360deg)}}
   /* WhatsApp flotante */
   .wa-fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:90;display:flex;align-items:center;gap:10px;text-decoration:none}
   .wa-btn{position:relative;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 28px rgba(37,211,102,.5);transition:transform .2s}
@@ -110,7 +103,7 @@ tailwind.config = {
     .wa-fab{right:14px} .wa-tip{display:none} .wa-btn{width:58px;height:58px}
   }
   @media(hover:none){.gcap{transform:none}.gcap p{opacity:1}.zoom{opacity:1;transform:none}.gcard:hover img{transform:none}}
-  @media(prefers-reduced-motion:reduce){.marq,.play span,.wa-btn,.wa-btn::before,.wa-btn::after,.wa-tip,.logo-hero::before,.logo-hero::after{animation:none}.gcard,.reveal{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.marq,.play span,.wa-btn,.wa-btn::before,.wa-btn::after,.wa-tip{animation:none}.gcard,.reveal{opacity:1;transform:none}}
 </style>
 <noscript><style>.gcard,.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -427,7 +420,7 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- CONTACTO: LOGO PROTAGONISTA + FORMULARIO (único punto de contacto) -->
+<!-- CONTACTO: FORMULARIO (único punto de contacto) -->
 <section id="contacto" class="relative py-20 lg:py-28 bg-gradient-to-b from-bg to-deep overflow-hidden border-t border-line/60">
   <div class="absolute -left-32 top-10 w-[480px] h-[480px] rounded-full bg-acc/10 blur-[140px] pointer-events-none"></div>
   <div class="absolute -right-32 bottom-0 w-[420px] h-[420px] rounded-full bg-gold/10 blur-[140px] pointer-events-none"></div>
@@ -438,54 +431,39 @@ tailwind.config = {
       <p class="text-lg text-white/75 mt-5">Déjanos tus datos y te escribimos para agendar la valoración diagnóstica.</p>
     </div>
 
-    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-      <!-- LOGO grande -->
-      <div class="lg:col-span-5 reveal l flex flex-col items-center text-center gap-6 order-2 lg:order-1">
-        <div class="logo-hero"><img src="img/logo.jpg" alt="Logo EFDE" class="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80"></div>
-        <div class="mt-4">
-          <p class="font-display uppercase text-4xl text-white tracking-wider">EFDE</p>
-          <p class="lbl text-xs text-gold mt-1">Entrenamiento Físico Deportivo Evolucionado</p>
+    <!-- FORMULARIO (centrado) -->
+    <div class="max-w-3xl mx-auto reveal z">
+      <form id="lead-form" novalidate class="bg-card border border-white/10 rounded-2xl p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,.5)]">
+        <div class="flex items-center gap-3 pb-4 mb-6 border-b border-line">
+          <img src="img/logo.jpg" alt="" class="w-12 h-12 rounded-full object-cover ring-2 ring-acc">
+          <div><h3 class="font-display uppercase text-white text-xl leading-tight">Agenda tu valoración</h3><p class="text-xs text-mute">Te respondemos por WhatsApp</p></div>
         </div>
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 lbl text-[11px] text-mute">
-          <span class="flex items-center gap-1.5"><span class="ms text-acc text-base">check_circle</span>Entrenadores titulados</span>
-          <span class="flex items-center gap-1.5"><span class="ms text-acc text-base">check_circle</span>Metodología integral</span>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label for="f-nombre" class="lbl text-[11px] text-gold block mb-2">Tu nombre *</label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Nombre completo" class="field"></div>
+          <div><label for="f-tel" class="lbl text-[11px] text-gold block mb-2">Teléfono / WhatsApp *</label>
+            <input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required placeholder="300 000 0000" class="field"></div>
+          <div><label for="f-atleta" class="lbl text-[11px] text-gold block mb-2">Nombre del atleta</label>
+            <input id="f-atleta" name="atleta" type="text" placeholder="Nombre del jugador" class="field"></div>
+          <div><label for="f-edad" class="lbl text-[11px] text-gold block mb-2">Edad del atleta</label>
+            <select id="f-edad" name="edad" class="field">
+              <option value="">Selecciona…</option>
+              <option>5 - 9 años</option><option>10 - 14 años</option><option>15 años o más</option>
+            </select></div>
+          <div><label for="f-barrio" class="lbl text-[11px] text-gold block mb-2">Barrio / zona</label>
+            <input id="f-barrio" name="barrio" type="text" placeholder="Ej: Laureles, El Poblado…" class="field"></div>
+          <div><label for="f-obj" class="lbl text-[11px] text-gold block mb-2">Objetivo</label>
+            <select id="f-obj" name="objetivo" class="field">
+              <option value="">Selecciona…</option>
+              <option>Velocidad y regate</option><option>Fuerza y salto</option><option>Recuperación acuática</option><option>Plan integral</option>
+            </select></div>
+          <div class="sm:col-span-2"><label for="f-msg" class="lbl text-[11px] text-gold block mb-2">Comentario (opcional)</label>
+            <textarea id="f-msg" name="mensaje" rows="3" placeholder="Cuéntanos algo más: horarios, experiencia, lesiones…" class="field resize-none"></textarea></div>
         </div>
-      </div>
-
-      <!-- FORMULARIO -->
-      <div class="lg:col-span-7 reveal r order-1 lg:order-2">
-        <form id="lead-form" novalidate class="bg-card border border-white/10 rounded-2xl p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,.5)]">
-          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-line">
-            <img src="img/logo.jpg" alt="" class="w-12 h-12 rounded-full object-cover ring-2 ring-acc">
-            <div><h3 class="font-display uppercase text-white text-xl leading-tight">Agenda tu valoración</h3><p class="text-xs text-mute">Te respondemos por WhatsApp</p></div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div><label for="f-nombre" class="lbl text-[11px] text-gold block mb-2">Tu nombre *</label>
-              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Nombre completo" class="field"></div>
-            <div><label for="f-tel" class="lbl text-[11px] text-gold block mb-2">Teléfono / WhatsApp *</label>
-              <input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required placeholder="300 000 0000" class="field"></div>
-            <div><label for="f-atleta" class="lbl text-[11px] text-gold block mb-2">Nombre del atleta</label>
-              <input id="f-atleta" name="atleta" type="text" placeholder="Nombre del jugador" class="field"></div>
-            <div><label for="f-edad" class="lbl text-[11px] text-gold block mb-2">Edad del atleta</label>
-              <select id="f-edad" name="edad" class="field">
-                <option value="">Selecciona…</option>
-                <option>5 - 9 años</option><option>10 - 14 años</option><option>15 años o más</option>
-              </select></div>
-            <div><label for="f-barrio" class="lbl text-[11px] text-gold block mb-2">Barrio / zona</label>
-              <input id="f-barrio" name="barrio" type="text" placeholder="Ej: Laureles, El Poblado…" class="field"></div>
-            <div><label for="f-obj" class="lbl text-[11px] text-gold block mb-2">Objetivo</label>
-              <select id="f-obj" name="objetivo" class="field">
-                <option value="">Selecciona…</option>
-                <option>Velocidad y regate</option><option>Fuerza y salto</option><option>Recuperación acuática</option><option>Plan integral</option>
-              </select></div>
-            <div class="sm:col-span-2"><label for="f-msg" class="lbl text-[11px] text-gold block mb-2">Comentario (opcional)</label>
-              <textarea id="f-msg" name="mensaje" rows="3" placeholder="Cuéntanos algo más: horarios, experiencia, lesiones…" class="field resize-none"></textarea></div>
-          </div>
-          <p id="f-error" class="hidden mt-4 text-sm text-red-400" role="alert"></p>
-          <button type="submit" class="btn btn-pri w-full py-4 text-sm mt-6"><span class="ms">send</span>Enviar por WhatsApp</button>
-          <p class="text-[11px] text-mute text-center mt-3">Al enviar se abrirá WhatsApp con tus datos listos para mandar. No guardamos información en esta página.</p>
-        </form>
-      </div>
+        <p id="f-error" class="hidden mt-4 text-sm text-red-400" role="alert"></p>
+        <button type="submit" class="btn btn-pri w-full py-4 text-sm mt-6"><span class="ms">send</span>Enviar</button>
+        <p class="text-[11px] text-mute text-center mt-3">Al enviar se abrirá WhatsApp con tus datos listos para mandar. No guardamos información en esta página.</p>
+      </form>
     </div>
   </div>
 </section>
