@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- index.html -->
 <html class="dark" lang="es">
 <head>
 <meta charset="utf-8">
@@ -104,15 +105,15 @@ tailwind.config = {
 <!-- NAVBAR -->
 <header class="fixed top-0 inset-x-0 z-50 bg-deep/80 backdrop-blur-xl border-b border-cyan/15">
   <div id="prog" class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-cyan via-ice to-sky shadow-[0_0_10px_#00d4ff]"></div>
-  <div class="h-[72px] px-5 lg:px-12 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-3">
+  <div class="h-[72px] px-5 lg:px-12 flex items-center justify-between gap-4">
+    <a href="#" class="flex items-center gap-3 shrink-0">
       <img src="img/logo.jpg" alt="EFDE" class="w-10 h-10 rounded-full object-cover ring-2 ring-cyan shadow-[0_0_18px_rgba(0,212,255,.6)]">
-      <div class="leading-tight">
+      <div class="leading-tight whitespace-nowrap">
         <span class="font-display text-xl tracking-wider text-ice block">EFDE</span>
         <span class="lbl text-[9px] text-mute hidden sm:block">Fútbol &amp; Rendimiento Evolucionado</span>
       </div>
     </a>
-    <nav class="hidden xl:flex items-center gap-7 lbl text-xs text-mute">
+    <nav class="hidden 2xl:flex items-center gap-6 lbl text-xs text-mute whitespace-nowrap">
       <a class="hover:text-ice transition" href="#diagnostico">Diagnóstico</a>
       <a class="hover:text-ice transition" href="#comparativa">Comparador</a>
       <a class="hover:text-ice transition" href="#pilares">4 Pilares</a>
@@ -122,16 +123,26 @@ tailwind.config = {
       <a class="hover:text-ice transition" href="#sedes">A domicilio</a>
       <a class="hover:text-ice transition" href="#faq">Preguntas</a>
     </nav>
-    <div class="flex items-center gap-2 sm:gap-3">
-      <a href="https://www.instagram.com/efde_8?srtk=Nzk4bjkxMXVxb2Iw" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-1.5 px-3 py-2 rounded border border-cyan/25 text-mute hover:text-ice lbl text-xs"><span class="ms text-base">photo_camera</span>@efde_8</a>
-      <a href="https://wa.me/573045397651?text=%C2%A1Hola%20EFDE!%20Quiero%20conocer%20horarios%20y%20agendar%20diagn%C3%B3stico." target="_blank" rel="noopener noreferrer" class="btn btn-pri px-4 py-2.5 text-xs"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span><span class="ms text-base">chat</span><span class="hidden sm:inline">304 539 7651</span><span class="sm:hidden">WhatsApp</span></a>
-      <button id="menu-btn" type="button" class="xl:hidden w-11 h-11 rounded border border-cyan/30 grid place-items-center text-ice" aria-label="Abrir menú" aria-expanded="false"><span class="ms">menu</span></button>
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      <a href="https://www.instagram.com/efde_8?srtk=Nzk4bjkxMXVxb2Iw" target="_blank" rel="noopener noreferrer" class="hidden min-[1700px]:flex items-center gap-1.5 px-3 py-2 rounded border border-cyan/25 text-mute hover:text-ice lbl text-xs whitespace-nowrap"><span class="ms text-base">photo_camera</span>@efde_8</a>
+      <a href="https://wa.me/573045397651?text=%C2%A1Hola%20EFDE!%20Quiero%20conocer%20horarios%20y%20agendar%20diagn%C3%B3stico." target="_blank" rel="noopener noreferrer" class="btn btn-pri px-4 py-2.5 text-xs whitespace-nowrap"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span><span class="ms text-base">chat</span><span class="hidden sm:inline">304 539 7651</span><span class="sm:hidden">WhatsApp</span></a>
+      <button id="menu-btn" type="button" class="2xl:hidden w-11 h-11 rounded border border-cyan/30 grid place-items-center text-ice" aria-label="Abrir menú" aria-expanded="false"><span class="ms">menu</span></button>
     </div>
   </div>
 </header>
 
-<div id="mnav" class="hidden xl:hidden fixed inset-x-0 top-[72px] bottom-0 z-40 bg-deep/95 backdrop-blur-xl px-6 py-4 overflow-y-auto">
-  <nav class="flex flex-col lbl text-sm text-white"><a href="#diagnostico" class="py-4 border-b border-line/30 flex justify-between items-center">Diagnóstico<span class="ms text-cyan">chevron_right</span></a><a href="#como" class="py-4 border-b border-line/30 flex justify-between items-center">Cómo funciona<span class="ms text-cyan">chevron_right</span></a><a href="#mision" class="py-4 border-b border-line/30 flex justify-between items-center">Misión y visión<span class="ms text-cyan">chevron_right</span></a><a href="#galeria" class="py-4 border-b border-line/30 flex justify-between items-center">Galería<span class="ms text-cyan">chevron_right</span></a><a href="#videos" class="py-4 border-b border-line/30 flex justify-between items-center">Videos<span class="ms text-cyan">chevron_right</span></a><a href="#sedes" class="py-4 border-b border-line/30 flex justify-between items-center">A domicilio<span class="ms text-cyan">chevron_right</span></a><a href="#faq" class="py-4 border-b border-line/30 flex justify-between items-center">Preguntas<span class="ms text-cyan">chevron_right</span></a></nav>
+<div id="mnav" class="hidden 2xl:hidden fixed inset-x-0 top-[72px] bottom-0 z-40 bg-deep/95 backdrop-blur-xl px-6 py-4 overflow-y-auto">
+  <nav class="flex flex-col lbl text-sm text-white">
+    <a href="#diagnostico" class="py-4 border-b border-line/30 flex justify-between items-center">Diagnóstico<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#comparativa" class="py-4 border-b border-line/30 flex justify-between items-center">Comparador<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#pilares" class="py-4 border-b border-line/30 flex justify-between items-center">4 Pilares<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#como" class="py-4 border-b border-line/30 flex justify-between items-center">Cómo funciona<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#mision" class="py-4 border-b border-line/30 flex justify-between items-center">Misión y visión<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#galeria" class="py-4 border-b border-line/30 flex justify-between items-center">Galería<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#videos" class="py-4 border-b border-line/30 flex justify-between items-center">Videos<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#sedes" class="py-4 border-b border-line/30 flex justify-between items-center">A domicilio<span class="ms text-cyan">chevron_right</span></a>
+    <a href="#faq" class="py-4 border-b border-line/30 flex justify-between items-center">Preguntas<span class="ms text-cyan">chevron_right</span></a>
+  </nav>
   <a href="https://wa.me/573045397651?text=%C2%A1Hola%20EFDE!%20Quiero%20agendar%20diagn%C3%B3stico." target="_blank" rel="noopener noreferrer" class="btn btn-pri w-full py-4 text-sm mt-6"><span class="ms">chat</span>Escribir por WhatsApp</a>
 </div>
 
@@ -596,12 +607,12 @@ document.getElementById('videos-grid').innerHTML = VIDEOS.map((v,i)=>`
     <h3 class="font-display uppercase text-white text-lg mt-3">${v.t}</h3><p class="text-sm text-mute">${v.d}</p>
   </div>`).join('');
 
-/* ---------- Menú móvil ---------- */
+/* ---------- Menú móvil (el menú completo aparece desde 2xl = 1536px) ---------- */
 const mnav=document.getElementById('mnav'), mbtn=document.getElementById('menu-btn');
 function tg(o){ mnav.classList.toggle('hidden',!o); mbtn.setAttribute('aria-expanded',o); mbtn.firstElementChild.textContent=o?'close':'menu'; document.body.style.overflow=o?'hidden':''; }
 mbtn.onclick=()=>tg(mnav.classList.contains('hidden'));
 mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tg(false)));
-addEventListener('resize',()=>{ if(innerWidth>=1280) tg(false); });
+addEventListener('resize',()=>{ if(innerWidth>=1536) tg(false); });
 addEventListener('keydown',e=>{ if(e.key==='Escape') tg(false); });
 
 /* ---------- Video de fondo del hero (opcional): pon la ruta, ej. 'img/hero.mp4' ---------- */
