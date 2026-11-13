@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- index.html · EFDE · paleta original (negro azulado + cian + celeste) · formulario solo al final -->
+<!-- index.html · EFDE · paleta original (negro azulado + cian + celeste) · CSS compilado (css/style.css) -->
 <html class="dark" lang="es">
 <head>
 <meta charset="utf-8">
@@ -7,28 +7,17 @@
 <title>EFDE - Entrenamiento Físico Deportivo Evolucionado | Medellín</title>
 <meta name="description" content="Fútbol y alto rendimiento en Medellín: entrenamiento personalizado hasta tu residencia, gimnasio, piscina y videoanálisis. Agenda tu diagnóstico.">
 <link rel="icon" href="img/logo.jpg">
-<meta property="og:type" content="website"><meta property="og:title" content="EFDE - Entrenamiento Físico Deportivo Evolucionado"><meta property="og:description" content="Entrenamiento personalizado de fútbol y alto rendimiento en Medellín, hasta tu residencia."><meta property="og:image" content="img/slalom.jpg"><meta name="theme-color" content="#0a0e13">
+<meta property="og:type" content="website"><meta property="og:title" content="EFDE - Entrenamiento Físico Deportivo Evolucionado"><meta property="og:description" content="Entrenamiento personalizado de fútbol y alto rendimiento en Medellín, hasta tu residencia."><meta property="og:image" content="img/portada-coach.jpg"><meta name="theme-color" content="#0a0e13">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"EFDE - Entrenamiento Físico Deportivo Evolucionado","telephone":"+573045397651","areaServed":"Medellín, Antioquia","sameAs":["https://www.instagram.com/efde_8"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-/* ===== PALETA (cámbiala aquí si quieres otro tono) =====
-   acc  = cian principal · gold = celeste secundario · cream = blanco azulado */
-tailwind.config = {
-  theme: { extend: {
-    colors: { bg:'#0a0e13', deep:'#070a0e', card:'#111820', high:'#18212b', acc:'#00d4ff', gold:'#7fd6ff', cream:'#e8f6ff', mute:'#9db0bf', line:'#1f2c38' },
-    fontFamily: { display:['Oswald','sans-serif'], body:['Montserrat','sans-serif'], tech:['Space Grotesk','sans-serif'] }
-  } }
-}
-</script>
 <style>
   :root{--acc:#00d4ff;--gold:#7fd6ff;--accrgb:0,212,255}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%} body{background:#0a0e13;color:#e3edf5;font-family:Montserrat,sans-serif;overflow-x:hidden}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%} body{background:#0a0e13;color:#e3edf5;font-family:Montserrat,system-ui,-apple-system,sans-serif;overflow-x:hidden}
   a,button,summary{-webkit-tap-highlight-color:transparent}
-  .ms{font-family:'Material Symbols Outlined';font-weight:400;font-style:normal;line-height:1;display:inline-block;vertical-align:middle;font-size:20px}
+  .ms{font-family:'Material Symbols Outlined';font-weight:400;font-style:normal;line-height:1;display:inline-block;vertical-align:middle;font-size:20px;width:1em;height:1em;overflow:hidden;white-space:nowrap;letter-spacing:normal;text-transform:none;-webkit-font-feature-settings:'liga';font-feature-settings:'liga'}
   .glass{background:rgba(10,14,19,.66);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(127,214,255,.18)}
   .lbl{font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:12px;color:var(--acc)}
@@ -41,22 +30,45 @@ tailwind.config = {
   .field{width:100%;background:#0b1117;border:1px solid #28394a;border-radius:.5rem;padding:.9rem 1rem;color:#fff;font-size:16px;font-family:Montserrat,sans-serif;transition:.2s}
   .field::placeholder{color:#5f7385} .field:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(0,212,255,.2)}
   .field.bad{border-color:#ef4444}
-  select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2300d4ff' stroke-width='2'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
-  /* Hero: foto separada del borde, sin sombra gris */
+  select.field{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2300d4ff' stroke-width='2'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+
+  /* ===== HERO · foto de fondo sin marco ===== */
+  .hero-fg{position:absolute;object-fit:cover;border:0;border-radius:0;box-shadow:none}
+  .hero-ov{position:absolute;inset:0;pointer-events:none}
+
+  /* MÓVIL (<640px): foto completa (se ve el coach y el atleta), texto debajo */
+  .hero-fg{
+    top:0;left:0;width:100%;height:auto;aspect-ratio:3/2;
+    object-position:center;
+    -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 72%,transparent 100%);
+  }
+  .hero-ov{background:linear-gradient(180deg,rgba(7,10,14,.3) 0,rgba(7,10,14,0) 18vw,rgba(7,10,14,0) 46vw,#070a0e 72vw)}
+  .hero-copy{padding-top:60vw!important}
+
+  /* TABLET (640–1023px) */
+  @media(min-width:640px){
+    .hero-fg{aspect-ratio:16/9}
+    .hero-ov{background:linear-gradient(180deg,rgba(7,10,14,.3) 0,rgba(7,10,14,0) 14vw,rgba(7,10,14,0) 38vw,#070a0e 58vw)}
+    .hero-copy{padding-top:48vw!important}
+  }
+
+  /* ESCRITORIO (≥1024px): foto a la derecha, más pequeña, con bordes difuminados */
   @media(min-width:1024px){
     .hero-fg{
-      position:absolute;top:50%!important;right:5vw!important;left:auto!important;
+      top:50%;right:2vw;left:auto;
       transform:translateY(-50%);
-      height:auto!important;width:auto!important;
-      max-height:80%;max-width:44%;
-      object-fit:contain!important;object-position:center!important;
-      border-radius:28px!important;
-      -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,#000 0,#000 82%,transparent 100%);
-      mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,#000 0,#000 82%,transparent 100%);
-      -webkit-mask-composite:source-in;mask-composite:intersect;
+      width:56%;height:auto;aspect-ratio:3/2;   /* <-- TAMAÑO: cambia este 56% */
+      object-position:center;
+      -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 35%),linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%);
+      -webkit-mask-composite:source-in;
+              mask-image:linear-gradient(90deg,transparent 0%,#000 35%),linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%);
+              mask-composite:intersect;
     }
-    .hero-ov{background:linear-gradient(90deg,#070a0e 0%,rgba(7,10,14,.75) 40%,transparent 70%)!important}
+    .hero-ov{background:linear-gradient(90deg,#070a0e 0%,rgba(7,10,14,.5) 30%,transparent 50%)}
+    .hero-copy{padding-top:3.5rem!important}
   }
+
   /* Galería */
   .gcard{position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;break-inside:avoid;margin-bottom:16px;background:#111820;border:1px solid rgba(255,255,255,.08);
     opacity:0;transform:translateY(28px) scale(.97);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s}
@@ -98,11 +110,6 @@ tailwind.config = {
   .wa-tip{background:#fff;color:#0a0e13;font:700 12px 'Space Grotesk',sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.35);animation:tip 6s ease-in-out infinite}
   @keyframes wring{to{transform:scale(2);opacity:0}}
   @keyframes tip{0%,8%{opacity:0;transform:translateX(12px)}14%,70%{opacity:1;transform:none}80%,100%{opacity:0;transform:translateX(12px)}}
-  /* Móvil */
-  @media(max-width:1023px){
-    .hero-fg{height:100%!important;width:100%!important;max-height:none!important;max-width:none!important;top:0!important;right:0!important;left:0!important;transform:none!important;object-fit:cover!important;object-position:70% 20%!important;opacity:.5;border-radius:0!important}
-    .hero-ov{background:linear-gradient(180deg,rgba(7,10,14,.65),rgba(7,10,14,.92))!important}
-  }
   @media(max-width:640px){
     .btn{min-height:48px}
     .marq img{height:110px}
@@ -114,6 +121,8 @@ tailwind.config = {
   @media(hover:none){.gcap{transform:none}.gcap p{opacity:1}.zoom{opacity:1;transform:none}.gcard:hover img{transform:none}}
   @media(prefers-reduced-motion:reduce){.marq,.play span,.wa-btn,.wa-btn::before,.wa-btn::after,.wa-tip{animation:none}.gcard,.reveal{opacity:1;transform:none}}
 </style>
+<!-- CSS de Tailwind ya compilado (no depende de ningún CDN). Debe ir DESPUÉS del bloque <style> anterior -->
+<link rel="stylesheet" href="css/style.css">
 <noscript><style>.gcard,.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="selection:bg-acc selection:text-deep">
@@ -133,7 +142,7 @@ tailwind.config = {
       <a class="hover:text-gold transition" href="#diagnostico">Diagnóstico</a>
       <a class="hover:text-gold transition" href="#pilares">4 Pilares</a>
       <a class="hover:text-gold transition" href="#como">Cómo funciona</a>
-      <a class="hover:text-gold transition" href="#mision">Misión</a>
+      <a class="hover:text-gold transition" href="#mision">Misión y objetivos</a>
       <a class="hover:text-gold transition" href="#galeria">Galería</a>
       <a class="hover:text-gold transition" href="#sedes">A domicilio</a>
       <a class="hover:text-gold transition" href="#faq">Preguntas</a>
@@ -151,7 +160,7 @@ tailwind.config = {
     <a href="#diagnostico" class="py-4 border-b border-white/10 flex justify-between items-center">Diagnóstico<span class="ms text-acc">chevron_right</span></a>
     <a href="#pilares" class="py-4 border-b border-white/10 flex justify-between items-center">4 Pilares<span class="ms text-acc">chevron_right</span></a>
     <a href="#como" class="py-4 border-b border-white/10 flex justify-between items-center">Cómo funciona<span class="ms text-acc">chevron_right</span></a>
-    <a href="#mision" class="py-4 border-b border-white/10 flex justify-between items-center">Misión y visión<span class="ms text-acc">chevron_right</span></a>
+    <a href="#mision" class="py-4 border-b border-white/10 flex justify-between items-center">Misión, visión y objetivos<span class="ms text-acc">chevron_right</span></a>
     <a href="#galeria" class="py-4 border-b border-white/10 flex justify-between items-center">Galería<span class="ms text-acc">chevron_right</span></a>
     <a href="#videos" class="py-4 border-b border-white/10 flex justify-between items-center">Videos<span class="ms text-acc">chevron_right</span></a>
     <a href="#sedes" class="py-4 border-b border-white/10 flex justify-between items-center">A domicilio<span class="ms text-acc">chevron_right</span></a>
@@ -166,22 +175,20 @@ tailwind.config = {
 <!-- HERO -->
 <section class="relative min-h-[calc(100vh-72px)] flex flex-col justify-between overflow-hidden bg-deep">
   <div class="absolute inset-0">
-    <img src="img/mentoria.jpg" alt="" aria-hidden="true" class="lg:hidden absolute inset-0 w-full h-full object-cover scale-110 blur-xl opacity-30">
-    <img src="img/mentoria.jpg" alt="Coach EFDE motivando a un atleta en la cancha" class="hero-fg absolute top-0 right-0 h-full w-full object-cover object-[68%_55%]" fetchpriority="high">
-    <div class="hidden lg:block absolute right-[8vw] top-1/2 -translate-y-1/2 w-[38vw] max-w-[560px] h-[70%] rounded-full bg-acc/15 blur-[120px] pointer-events-none"></div>
-    <div class="absolute inset-0 hero-ov bg-gradient-to-r from-deep via-deep/80 via-35% to-transparent to-75% pointer-events-none"></div>
+    <img src="img/portada-coach.jpg" alt="Coach EFDE dando indicaciones a un atleta en la cancha" class="hero-fg" fetchpriority="high" width="2000" height="1334">
+    <div class="hero-ov"></div>
     <div class="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-bg to-transparent pointer-events-none"></div>
     <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-deep/70 to-transparent pointer-events-none"></div>
     <div class="absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-acc/15 blur-[130px] pointer-events-none"></div>
   </div>
 
-  <div class="relative z-10 flex-1 flex items-center px-5 lg:px-12 max-w-[1440px] w-full mx-auto py-14">
+  <div class="hero-copy relative z-10 flex-1 flex items-center px-5 lg:px-12 max-w-[1440px] w-full mx-auto py-14">
     <div class="max-w-2xl flex flex-col items-start gap-6">
       <div class="glass rounded-full pl-1.5 pr-4 py-1.5 flex items-center gap-2.5">
         <img src="img/logo.jpg" alt="" class="w-8 h-8 rounded-full object-cover ring-2 ring-acc">
         <span class="lbl text-[11px] text-gold">Método EFDE · Medellín</span>
       </div>
-      <h1 class="font-display uppercase font-bold text-white leading-[.98] tracking-tight text-[clamp(40px,7vw,84px)] drop-shadow-[0_4px_24px_rgba(0,0,0,.6)]">
+      <h1 class="font-display uppercase font-bold text-white leading-[.98] tracking-tight text-[clamp(38px,7vw,84px)] drop-shadow-[0_4px_24px_rgba(0,0,0,.6)]">
         Entrenamiento<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-acc to-[#8ec9ff]">Físico Deportivo</span><br>Evolucionado
       </h1>
       <p class="text-base lg:text-lg text-white/85 leading-relaxed max-w-xl drop-shadow-[0_2px_10px_rgba(0,0,0,.7)]">
@@ -328,25 +335,44 @@ tailwind.config = {
 <div class="text-center mt-10 reveal"><a href="#contacto" class="btn btn-pri px-8 py-4 text-sm"><span class="ms">edit_note</span>Agendar mi valoración</a></div>
 </div></section>
 
-<!-- MISIÓN Y VISIÓN -->
+<!-- MISIÓN, VISIÓN Y OBJETIVOS (textos oficiales de EFDE) -->
 <section id="mision" class="py-20 lg:py-24 bg-[#0d131a] border-t border-line/60">
   <div class="max-w-[1440px] mx-auto px-5 lg:px-12">
     <div class="text-center max-w-3xl mx-auto mb-12 reveal">
       <span class="eyebrow">Quiénes somos</span>
-      <h2 class="h2 mt-3">Misión <span class="text-acc">&amp; visión</span></h2>
+      <h2 class="h2 mt-3">Misión, visión <span class="text-acc">&amp; objetivos</span></h2>
     </div>
     <div class="grid md:grid-cols-2 gap-6">
       <div class="reveal l bg-card p-8 rounded-2xl border border-white/10 hover:border-acc/50 transition">
         <span class="w-14 h-14 rounded-xl bg-deep grid place-items-center text-acc mb-5"><span class="ms text-3xl">flag</span></span>
-        <h3 class="font-display uppercase text-white text-2xl mb-3">Nuestra misión</h3>
-        <p class="text-mute leading-relaxed">Formar futbolistas completos mediante un entrenamiento físico deportivo personalizado que llega hasta su residencia, combinando técnica, fuerza, recuperación y acompañamiento cercano, para que cada atleta desarrolle su potencial con seguridad, disciplina y alegría.</p>
+        <h3 class="font-display uppercase text-white text-2xl mb-3">Misión</h3>
+        <p class="text-mute leading-relaxed">Contribuir en el proceso de formación de nuestros deportistas asociados y así llevarlos hacia el alto rendimiento y, a su vez, crear espacios de disfrute para la actividad física y hábitos saludables.</p>
       </div>
       <div class="reveal r glass !border-2 !border-acc p-8 rounded-2xl shadow-[0_0_40px_rgba(0,212,255,.15)]">
         <span class="w-14 h-14 rounded-xl bg-deep grid place-items-center text-acc mb-5"><span class="ms text-3xl">visibility</span></span>
-        <h3 class="font-display uppercase text-white text-2xl mb-3">Nuestra visión</h3>
-        <p class="text-white/85 leading-relaxed">Ser en Medellín la referencia en entrenamiento personalizado de fútbol y alto rendimiento, reconocida por la evolución de sus atletas y por un método que une ciencia, valores y cercanía con las familias.</p>
+        <h3 class="font-display uppercase text-white text-2xl mb-3">Visión</h3>
+        <p class="text-white/85 leading-relaxed">Ser líderes en el desarrollo y potenciación de deportistas, reconocidos por nuestra excelencia, innovación y constante evolución.</p>
       </div>
     </div>
+
+    <div class="grid lg:grid-cols-12 gap-6 mt-6">
+      <figure class="reveal l lg:col-span-4 relative overflow-hidden rounded-2xl border border-white/10 min-h-[360px] lg:min-h-0">
+        <img src="img/choque-manos.jpg" alt="Coach EFDE chocando la mano con un atleta antes de entrenar" class="absolute inset-0 w-full h-full object-cover object-[62%_50%]" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-deep via-deep/20 to-transparent"></div>
+        <figcaption class="absolute bottom-0 inset-x-0 p-5"><span class="lbl text-[10px] text-acc">Cada sesión</span><p class="font-display uppercase text-white text-xl leading-tight">Empieza con confianza y buena energía</p></figcaption>
+      </figure>
+      <div class="lg:col-span-8 flex flex-col gap-6">
+        <div class="reveal r bg-card p-8 rounded-2xl border border-white/10 hover:border-acc/50 transition">
+          <div class="flex items-center gap-4 mb-4"><span class="w-14 h-14 rounded-xl bg-deep grid place-items-center text-acc shrink-0"><span class="ms text-3xl">track_changes</span></span><h3 class="font-display uppercase text-white text-2xl">Objetivo principal</h3></div>
+          <p class="text-mute leading-relaxed">En EFDE nos comprometemos a brindar un servicio óptimo y personalizado a cada uno de nuestros deportistas, considerando su nivel de formación. Implementamos métodos de aprendizaje diseñados para potenciar sus habilidades y fortalecer sus debilidades.</p>
+        </div>
+        <div class="reveal r bg-card p-8 rounded-2xl border border-white/10 hover:border-acc/50 transition" style="--d:120ms">
+          <div class="flex items-center gap-4 mb-4"><span class="w-14 h-14 rounded-xl bg-deep grid place-items-center text-gold shrink-0"><span class="ms text-3xl">trending_up</span></span><h3 class="font-display uppercase text-white text-2xl">Objetivo específico</h3></div>
+          <p class="text-mute leading-relaxed">En EFDE aseguramos el mejoramiento continuo de cada uno de nuestros deportistas, permitiéndoles desempeñar su labor de manera óptima en el terreno de juego. Trabajamos de manera idónea y personalizada para brindarte el mejor servicio, apoyando tu crecimiento y desarrollo deportivo.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
       <div class="reveal z bg-card p-5 rounded-xl border border-line text-center"><span class="ms text-acc text-3xl">military_tech</span><p class="lbl text-xs text-white mt-2">Disciplina</p></div>
       <div class="reveal z bg-card p-5 rounded-xl border border-line text-center"><span class="ms text-gold text-3xl">volunteer_activism</span><p class="lbl text-xs text-white mt-2">Humildad</p></div>
@@ -441,7 +467,6 @@ tailwind.config = {
       <p class="text-lg text-white/75 mt-5">Déjanos tus datos y te escribimos para agendar la valoración diagnóstica.</p>
     </div>
 
-    <!-- FORMULARIO (centrado) -->
     <div class="max-w-3xl mx-auto reveal z">
       <form id="lead-form" novalidate class="bg-card border border-white/10 rounded-2xl p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,.5)]">
         <div class="flex items-center gap-3 pb-4 mb-6 border-b border-line">
@@ -546,7 +571,9 @@ const items = [
   {src:'img/mentoria.jpg',      cat:'campo',   t:'Motivación & mentoría',    d:'Atención humana y cercana que inspira seguridad dentro y fuera de la cancha.'},
   {src:'img/celestes.jpg',      cat:'campo',   t:'Identidad EFDE',           d:'El orgullo de vestir la camiseta oficial EFDE y representar sus valores.'},
   {src:'img/camara.jpg',        cat:'video',   t:'Videoanálisis en cancha',  d:'Registramos las sesiones para corregir postura, perfilación y toma de decisiones con el atleta.'},
-  {src:'img/cancha-barrio.jpg', cat:'campo',   t:'Entrenar en cualquier cancha', d:'La técnica no depende del escenario: con método, cada espacio se vuelve un campo de alto rendimiento.'}
+  {src:'img/cancha-barrio.jpg', cat:'campo',   t:'Entrenar en cualquier cancha', d:'La técnica no depende del escenario: con método, cada espacio se vuelve un campo de alto rendimiento.'},
+  {src:'img/portada-coach.jpg', cat:'campo',   t:'Instrucciones en cancha',  d:'El coach orienta cada ejercicio con indicaciones claras, balón en mano y atención al ritmo de cada atleta.'},
+  {src:'img/choque-manos.jpg',  cat:'campo',   t:'Chócala, campeón',         d:'Cada sesión empieza con confianza: un choque de manos, buena energía y ganas de entrenar.'}
 ];
 items[4].src = items[4].poster;
 
@@ -645,7 +672,6 @@ function plan(){
            a:'Sobrecarga orientada a velocidad de despegue', b:'Resistencia anaeróbica en cancha', c:'Descompresión total en piscina'};
   $('p-name').textContent=P.n; $('p-desc').textContent=P.d; $('p-freq').textContent=P.f; $('p-ratio').textContent=P.r; $('p-pool').textContent=P.p;
   $('p-f1').textContent=P.a; $('p-f2').textContent=P.b; $('p-f3').textContent=P.c;
-  /* Guarda el plan elegido para incluirlo en el formulario */
   window.__plan = `Edad ${st.age}, nivel ${st.level}, objetivo ${st.goal}. Plan sugerido: ${P.n}.`;
 }
 [['g-age','age'],['g-level','level'],['g-goal','goal']].forEach(([id,k]) => {
@@ -693,7 +719,7 @@ document.getElementById('videos-grid').innerHTML = VIDEOS.map((v,i)=>`
     if (v('mensaje')) L.push('', v('mensaje'));
     const url = WA + encodeURIComponent(L.join('\n'));
     const w = window.open(url, '_blank', 'noopener');
-    if (!w) location.href = url; /* si el navegador bloquea la ventana, abre en la misma pestaña */
+    if (!w) location.href = url;
   });
 })();
 
