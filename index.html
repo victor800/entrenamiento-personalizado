@@ -69,6 +69,13 @@
     .hero-copy{padding-top:3.5rem!important}
   }
 
+  /* Barra del desarrollador (ocupa todo el ancho del footer) */
+  @media(min-width:1024px){.dev-bar{margin-left:-3rem!important;margin-right:-3rem!important}}
+
+  /* Sección equipo: fondo con luz y foto más brillante */
+  .equipo-sec{background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(0,212,255,.28),transparent 70%),linear-gradient(180deg,#0d131a 0%,#16283a 50%,#0d131a 100%)}
+  .equipo-img{height:auto;max-height:78vh;object-fit:cover;object-position:center 30%;filter:brightness(1.15) contrast(1.05) saturate(1.1);box-shadow:0 20px 60px rgba(0,212,255,.22),0 0 0 6px rgba(0,212,255,.08)}
+
   /* Galería */
   .gcard{position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;break-inside:avoid;margin-bottom:16px;background:#111820;border:1px solid rgba(255,255,255,.08);
     opacity:0;transform:translateY(28px) scale(.97);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s}
@@ -76,9 +83,8 @@
   .gcard:hover{border-color:var(--acc);box-shadow:0 14px 40px rgba(0,212,255,.22)}
   .gcard img{width:100%;display:block;transition:transform .8s ease}
   .gcard:hover img{transform:scale(1.08)}
-  .gcap{position:absolute;inset:auto 0 0 0;padding:44px 14px 14px;background:linear-gradient(0deg,rgba(7,10,14,.95),transparent);transform:translateY(34%);transition:transform .35s ease}
-  .gcard:hover .gcap{transform:none}
-  .gcap p{opacity:0;transition:opacity .3s .05s} .gcard:hover .gcap p{opacity:1}
+  .gcap{position:absolute;inset:auto 0 0 0;padding:44px 14px 18px;background:linear-gradient(0deg,rgba(7,10,14,.95),transparent)}
+  .gcap p{max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .3s .05s} .gcard:hover .gcap p{max-height:4rem;opacity:1}
   .zoom{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(7,10,14,.7);display:grid;place-items:center;color:var(--acc);opacity:0;transform:scale(.7);transition:.3s}
   .gcard:hover .zoom{opacity:1;transform:none}
   .play{position:absolute;inset:0;display:grid;place-items:center}
@@ -118,7 +124,7 @@
     #lb-box{padding:64px 16px 88px!important}
     .wa-fab{right:14px} .wa-tip{display:none} .wa-btn{width:58px;height:58px}
   }
-  @media(hover:none){.gcap{transform:none}.gcap p{opacity:1}.zoom{opacity:1;transform:none}.gcard:hover img{transform:none}}
+  @media(hover:none){.gcap p{max-height:4rem;opacity:1}.zoom{opacity:1;transform:none}.gcard:hover img{transform:none}}
   @media(prefers-reduced-motion:reduce){.marq,.play span,.wa-btn,.wa-btn::before,.wa-btn::after,.wa-tip{animation:none}.gcard,.reveal{opacity:1;transform:none}}
 </style>
 <!-- CSS de Tailwind ya compilado (no depende de ningún CDN). Debe ir DESPUÉS del bloque <style> anterior -->
@@ -445,13 +451,11 @@
 </div></div></section>
 
 <!-- EQUIPO -->
-<section class="relative bg-deep py-16 overflow-hidden border-t border-line/60">
-  <div class="absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-acc/10 blur-[130px] pointer-events-none"></div>
+<section class="equipo-sec relative py-16 overflow-hidden border-t border-line/60">
   <div class="relative max-w-[1100px] mx-auto px-5 lg:px-12 reveal z">
     <figure class="relative">
-      <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-acc/40 via-transparent to-gold/30 blur-xl opacity-60"></div>
-      <img src="img/equipo.jpg" alt="Equipo EFDE completo" class="relative w-full h-auto rounded-2xl border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,.6)]" loading="lazy">
-      <figcaption class="relative mt-3 lbl text-[11px] text-mute text-center">Familia EFDE · atletas y coaches</figcaption>
+      <img src="img/gym.jpg" alt="Entrenamiento de fuerza en el gimnasio EFDE" class="equipo-img relative w-full rounded-2xl border border-acc/40" loading="lazy">
+      <figcaption class="relative mt-3 lbl text-[11px] text-mute text-center">Fuerza &amp; gimnasio formativo · EFDE</figcaption>
     </figure>
   </div>
 </section>
@@ -526,7 +530,16 @@
           <div class="flex justify-between text-mute"><span>Sábados</span><b class="text-gold lbl text-xs">07:00 - 12:00</b></div>
         </div></div>
     </div>
-    <div class="pt-6 border-t border-line flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-mute"><span>© Copyright 2025 GBQ SAS All rights reserved.</span><span>Desarrollado por <b class="text-gold">VA Labs Engineering</b></span></div>
+    <div class="pt-6 border-t border-line text-center text-xs text-mute"><span>© Copyright 2026 - Valabs-Engeneering rights reserved.</span></div>
+  </div>
+
+  <!-- DESARROLLADOR: VA Labs Engineering -->
+  <div class="dev-bar border-t border-acc/30 px-5 py-4" style="margin:2rem -1.25rem -3.5rem;background:#05080b;padding-bottom:calc(1rem + env(safe-area-inset-bottom,0px))">
+    <p class="flex flex-wrap items-center justify-center gap-2 text-center text-xs text-mute">
+      <span class="ms text-base text-acc">code</span>
+      <span>Desarrollado por</span>
+      <b class="lbl text-gold" style="letter-spacing:.14em">VA Labs Engineering</b>
+    </p>
   </div>
 </footer>
 
